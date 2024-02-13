@@ -1,6 +1,7 @@
 pub mod handlers;
 
 
+use tower_http::services::{ServeFile, ServeDir};
 use axum::{
     self,
     routing::get,
@@ -10,11 +11,16 @@ use axum::{
 
 #[tokio::main]
 async fn main() {
-    // build our application with a single route
-    let app = Router::new().route("/", get(|| async { "Hello, World!" })).route("/echo", get(handlers::echo ));
+    let app = Router::new()
+        // .nest_service("/", service)
+        // .route("/", get(handlers::main_page))
+        .nest_service("/", ServeFile::new("ui/main.html"))
+        .nest_service("/ui", ServeDir::new("ui"))
+        // .nest_service("", service)
+        .nest_service("/tasks", ServeFile::new("ui/tasks.html"));
+        // .route("/tasks/", get(handlers::tasks_page));
+        // .route("/", get(|| async { "Hello, World!" }))
 
-    // run our app with hyper, listening globally on port 3000
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
-    // axum::Server::bind()
     axum::serve(listener, app).await.unwrap();
 }
