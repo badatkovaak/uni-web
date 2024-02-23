@@ -15,9 +15,10 @@ async fn main() {
         // .nest_service("/", service)
         // .route("/", get(handlers::main_page))
         .nest_service("/", ServeFile::new("ui/main.html"))
-        .nest_service("/ui", ServeDir::new("ui"))
         // .nest_service("", service)
-        .nest_service("/tasks", ServeFile::new("ui/tasks.html"));
+        .nest_service("/tasks", ServeFile::new("ui/tasks.html"))
+        .nest_service("/about", ServeFile::new("ui/about.html"))    
+        .nest_service("/ui", ServeDir::new("ui"));
         // .route("/tasks/", get(handlers::tasks_page));
         // .route("/", get(|| async { "Hello, World!" }))
 

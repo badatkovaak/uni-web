@@ -544,6 +544,66 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.header-ref {
+  --tw-text-opacity: 1;
+  color: rgb(20 184 166 / var(--tw-text-opacity));
+  text-decoration-line: none;
+}
+
+.header-ref:hover {
+  --tw-text-opacity: 1;
+  color: rgb(153 246 228 / var(--tw-text-opacity));
+}
+
+.header-ref-div {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.place-content-center {
+  place-content: center;
+}
+
+.place-content-start {
+  place-content: start;
+}
+
+.place-items-end {
+  place-items: end;
+}
+
+.place-items-stretch {
+  place-items: stretch;
+}
+
+.content-center {
+  align-content: center;
+}
+
+.content-end {
+  align-content: flex-end;
+}
+
+.content-evenly {
+  align-content: space-evenly;
+}
+
 .font-bold {
   font-weight: 700;
 }
