@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 @layer components {
-  .header-ref {
-    @apply text-teal-500 no-underline hover:text-teal-200;
-  }
-  .header-ref-div {
-    @apply m-2 p-2;
-  }
+    .header-ref {
+        @apply text-teal-700 no-underline hover:text-teal-600;
+    }
+    .header-ref-div {
+        @apply m-2 p-2;
+    }
 }
